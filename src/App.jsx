@@ -29,18 +29,27 @@ function App() {
     setTodos(newTodos);
   };
 
+
+  const completeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = true;
+    setTodos(newTodos);
+  }
+
+
+
+
   return (
-  <div className="app">
-    <h1>My todo list</h1>
-      {/* {todos.map((todo, index) => (
-        <TodoItem text={todo} key={index} />
-        ))}  would do the same*/}
-    {todos.map( todo => {
-      return <TodoItem todo={todo} key={index} />;
-    })}
-    <TodoForm addTodo={addTodo}/> 
-      {/* The FIRST addTodo is the key, we will be accessing this with props.addTodo inthe TodoForm. The SECOND addTodo is the value, which we defined as a function in our App.jsx file. */}
-  </div>
+    <div className="app">
+      <h1 className="todo-list">My todo list</h1>
+        {todos.map((todo, index) => (
+          <TodoItem todo={todo} key={index} index={index} completeTodo={completeTodo}/>
+          ))} 
+{/* the first completeTodo is the key for when we use props. in our TodoItem. The second completeTodo is the value, the function we've just defined in our App.jsx file */}
+      
+      <TodoForm addTodo={addTodo}/> 
+        {/* The FIRST addTodo is the key, we will be accessing this with props.addTodo inthe TodoForm. The SECOND addTodo is the value, which we defined as a function in our App.jsx file. */}
+    </div>
   )
 }
 
