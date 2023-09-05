@@ -12,13 +12,20 @@ import './App.css'
 
 function App() {
   const [todos, setTodos] = useState([
-    "Learn about React",
-    "Meet a friend for lunch",
-    "Build a really cool todo app",
+    {
+      text: "Learn about React",
+      isCompleted: false,
+    },{
+      text: "Meet a friend for lunch",
+      isCompleted: false,
+    },{
+      text: "Build a really cool todo app",
+      isCompleted: false,
+    }
   ]);
 
   const addTodo = (text) => {
-    const newTodos = [...todos, text];
+    const newTodos = [...todos, { text }];
     setTodos(newTodos);
   };
 
@@ -29,7 +36,7 @@ function App() {
         <TodoItem text={todo} key={index} />
         ))}  would do the same*/}
     {todos.map( todo => {
-      return <TodoItem text={todo} />;
+      return <TodoItem todo={todo} key={index} />;
     })}
     <TodoForm addTodo={addTodo}/> 
       {/* The FIRST addTodo is the key, we will be accessing this with props.addTodo inthe TodoForm. The SECOND addTodo is the value, which we defined as a function in our App.jsx file. */}
