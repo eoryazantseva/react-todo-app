@@ -43,11 +43,11 @@ function App() {
     <div className="app">
       <h1 className="todo-list">My todo list</h1>
         {todos.map((todo, index) => (
-          <TodoItem todo={todo} key={index} index={index} completeTodo={completeTodo}/>
+          <TodoItem todo={todo} key={index} index={index} completeTodo={completeTodo} />
           ))} 
 {/* the first completeTodo is the key for when we use props. in our TodoItem. The second completeTodo is the value, the function we've just defined in our App.jsx file */}
       
-      <TodoForm addTodo={addTodo}/> 
+      <TodoForm addTodo={addTodo} /> 
         {/* The FIRST addTodo is the key, we will be accessing this with props.addTodo inthe TodoForm. The SECOND addTodo is the value, which we defined as a function in our App.jsx file. */}
     </div>
   )
