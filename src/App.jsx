@@ -36,14 +36,17 @@ function App() {
     setTodos(newTodos);
   }
 
-
-
+  const removeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  }
 
   return (
     <div className="app">
       <h1 className="todo-list">My todo list</h1>
         {todos.map((todo, index) => (
-          <TodoItem todo={todo} key={index} index={index} completeTodo={completeTodo} />
+          <TodoItem todo={todo} key={index} index={index} completeTodo={completeTodo} removeTodo={removeTodo} />
           ))} 
 {/* the first completeTodo is the key for when we use props. in our TodoItem. The second completeTodo is the value, the function we've just defined in our App.jsx file */}
       
